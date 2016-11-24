@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="angular.min.js"></script>
+    <title>practices </title>
+</head>
+<body ng-app="myapp">
+<div ng-controller="firstcontroller">
+    <h1>firstcontroller</h1>
+    {{firstname}}
+    <button type="button" id="firstid" ng-click="hello()">click</button>
+    <rama></rama>
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+    var sampleapp = angular.module('myapp', []);
+    sampleapp.controller('firstcontroller', function ($scope, $rootScope) {
+        $rootScope.firstname = 'maniprasad'
+    });
+    sampleapp.directive('rama', function () {
+        return {
+            restrict: 'E',
+            template: "<h1 ng-click='hellow()'>hello rama {{mani}}</h1>",
+            link: function (scope) {
+                scope.hellow = function () {
+                    scope.mani = "bhargav";
+                };
+            }
+        }
+    });
+</script>
+</html>
